@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magnus Firearms | Premium Barrel Threading Services</title>
-    <meta name="description" content="Magnus Firearms offers expert barrel threading services for precision firearms. Our state-of-the-art techniques ensure unparalleled accuracy and performance.">
+    <meta name="description" content="Magnus Firearms offers expert barrel threading services for precision firearms. Our state-of-the-art CNC machine ensures unparalleled accuracy making your threads concentric to the bore every time.">
+    <meta name="keywords" content="barrel threading, barrel threading service, suppressor barrel threading, gunsmith, 1 2 28 barrel threading, barrel threading utah">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/index.css">
@@ -77,7 +78,7 @@
                         <div class="card-body text-center">
                             <i class="fas fa-microchip card-icon"></i>
                             <h3 class="h4 mb-3">Advanced Technology</h3>
-                            <p>State-of-the-art CNC machinery ensures precise and consistent threading for optimal performance..</p>
+                            <p>State-of-the-art CNC machinery ensures precise and consistent threading for optimal performance.</p>
                         </div>
                     </div>
                 </div>
@@ -244,20 +245,39 @@
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="service" class="form-label">Service Needed</label>
-                                <select class="form-select bg-secondary text-white border-0" id="service" required>
-                                    <option value="">Select a service</option>
-                                    <option value="barrel-threading">Barrel Threading</option>
+                                <label for="caliber" class="form-label">Caliber</label>
+                                <select onchange="onCaliberChange();" class="form-select bg-secondary text-white border-0" id="caliber" required>
+                                    <option value="">Select a caliber</option>
+                                    <option value="rimfire">Rimfire</option>
+                                    <option value=".20to.24">.20 to .24</option>
+                                    <option value=".243to.358">.243 to .358</option>
+                                    <option value=".375to.458">.375 to .458</option>
                                 </select>
                                 <div class="invalid-feedback">
-                                    Please select a service
+                                    Please select a caliber
                                 </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="thread pitch" class="form-label">Thread Pitch</label>
+                                <select class="form-select bg-secondary text-white border-0" id="thread pitch" required>
+                                    <option value="">Select a thread pitch</option>
+                                    <option value="1/2x28">1/2x28</option>
+                                    <option value="5/8x24">5/8x24</option>
+                                    <option value="3/4x24">3/4x24</option>
+                                    <option value="7/16x28">7/16x28</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a thread pitch
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label id="thread_pitch_msg" for="message" class="form-label"></label>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
                                 <textarea class="form-control bg-secondary text-white border-0" id="message" rows="4" required></textarea>
                                 <div class="invalid-feedback">
-                                    Please enter your message
+                                    Please enter any additional notes
                                 </div>
                             </div>
                         </form>
@@ -271,6 +291,44 @@
         </div>
     
         <script>
+            function onCaliberChange()
+            {
+                thread_pitch_msg = ""
+                var caliber = document.getElementById("caliber").value;
+                var items;
+                if (caliber === "rimfire") 
+                {
+                    items = ["1/2x28", "7/16x28"];
+                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .560\""
+                } 
+                else if (caliber === ".20to.24") 
+                {
+                    items = ["1/2x28", "7/16x28"];
+                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .560\""
+                }
+                else if (caliber === ".243to.358") 
+                {
+                    items = ["5/8x24", "1/2x28"];
+                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .685\""
+                }
+                else if (caliber === ".375to.458") 
+                {
+                    items = ["3/4x24", "5/8x24"];
+                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .810\""
+                }
+                else 
+                {
+                    items = ["1/2x28", "7/16x28", "5/8x24", "3/4x24"];
+                    thread_pitch_msg = ""
+                }
+                var str = ""
+                for (var item of items) {
+                    str += "<option>" + item + "</option>"
+                }
+                document.getElementById("thread pitch").innerHTML = str;
+                document.getElementById("thread_pitch_msg").innerHTML = thread_pitch_msg;
+            }
+
             // Form validation
             (() => {
                 'use strict'
