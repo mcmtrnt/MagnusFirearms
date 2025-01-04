@@ -1,21 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WM3WZN526B"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WM3WZN526B');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magnus Firearms | Premium Barrel Threading Services</title>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Gunsmith Barrel Threading",
+          "image": [
+            "https://magnusfirearms.com/images/magnusFirearms1.jpg",
+            "https://magnusfirearms.com/images/magnusFirearms2.jpg",
+            "https://magnusfirearms.com/images/magnusFirearms3.jpg",
+            "https://magnusfirearms.com/images/magnusFirearms4.jpg"
+           ],
+          "name": "Magnus Firearms",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "9466 560 W",
+            "addressLocality": "Sandy, Utah",
+            "addressRegion": "UT",
+            "postalCode": "84070",
+            "addressCountry": "US"
+          },
+          "url": "https://www.magnusfirearms.com",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "10:00",
+              "closes": "18:00"
+            }
+          ]
+        }
+        </script>
     <meta name="description" content="Magnus Firearms offers expert barrel threading services for precision firearms. Our state-of-the-art CNC machine ensures unparalleled accuracy making your threads concentric to the bore every time.">
     <meta name="keywords" content="barrel threading, barrel threading service, suppressor barrel threading, gunsmith, 1 2 28 barrel threading, barrel threading utah">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
 </head>
 <body>
     <div class="top-banner">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <span>Professional Barrel Threading Services</span>
-                <span>Call Us: (801) 913-4308</span>
+                <span>Contact Us: info@magnusfirearms.com</span>
             </div>
         </div>
     </div>
@@ -54,7 +101,7 @@
                 <div class="col-lg-8 col-md-10">
                     <h1 class="display-4 fw-bold mb-4">Professional Barrel Threading Services</h1>
                     <p class="lead mb-4">Trust your firearms to our expert gunsmiths for precise, reliable barrel threading that meets the highest industry standards.</p>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactModal">Get Started</a>
                 </div>
             </div>
         </div>
@@ -163,9 +210,9 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h4 class="footer-title">CONTACT US</h4>
                     <ul class="footer-links">
-                        <li>Phone: (801) 913-4308</li>
-                        <li>Email: alpinexc@gmail.com</li>
+                        <li>Email: info@magnusfirearms.com</li>
                         <li>Hours: Mon-Fri 10am-6pm</li>
+                        <li>Address: 9466 560 W, Sandy, UT 84070</li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -192,16 +239,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
         // Navbar background change on scroll
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
@@ -239,7 +276,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control bg-secondary text-white border-0" id="phone" required>
+                                <input type="tel" class="form-control bg-secondary text-white border-0" id="phone">
                                 <div class="invalid-feedback">
                                     Please enter your phone number
                                 </div>
@@ -275,7 +312,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea class="form-control bg-secondary text-white border-0" id="message" rows="4" required></textarea>
+                                <textarea class="form-control bg-secondary text-white border-0" id="message" rows="4"></textarea>
                                 <div class="invalid-feedback">
                                     Please enter any additional notes
                                 </div>
@@ -284,66 +321,11 @@
                     </div>
                     <div class="modal-footer border-secondary">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" form="contactForm" class="btn btn-primary">Send Message</button>
+                        <button class="btn btn-primary" onclick="sendEmail();">Send Message</button>
                     </div>
                 </div>
             </div>
         </div>
-    
-        <script>
-            function onCaliberChange()
-            {
-                thread_pitch_msg = ""
-                var caliber = document.getElementById("caliber").value;
-                var items;
-                if (caliber === "rimfire") 
-                {
-                    items = ["1/2x28", "7/16x28"];
-                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .560\""
-                } 
-                else if (caliber === ".20to.24") 
-                {
-                    items = ["1/2x28", "7/16x28"];
-                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .560\""
-                }
-                else if (caliber === ".243to.358") 
-                {
-                    items = ["5/8x24", "1/2x28"];
-                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .685\""
-                }
-                else if (caliber === ".375to.458") 
-                {
-                    items = ["3/4x24", "5/8x24"];
-                    thread_pitch_msg = "This caliber has a required minimum muzzle diameter of .810\""
-                }
-                else 
-                {
-                    items = ["1/2x28", "7/16x28", "5/8x24", "3/4x24"];
-                    thread_pitch_msg = ""
-                }
-                var str = ""
-                for (var item of items) {
-                    str += "<option>" + item + "</option>"
-                }
-                document.getElementById("thread pitch").innerHTML = str;
-                document.getElementById("thread_pitch_msg").innerHTML = thread_pitch_msg;
-            }
-
-            // Form validation
-            (() => {
-                'use strict'
-                const forms = document.querySelectorAll('.needs-validation')
-                Array.from(forms).forEach(form => {
-                    form.addEventListener('submit', event => {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-            })()
-        </script>
 
 </body>
 </html>
