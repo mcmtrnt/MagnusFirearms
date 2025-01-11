@@ -62,6 +62,26 @@ body {
     border-color: #c41230;
 }
 
+button:active {
+    background-color: #c41230 !important;
+    border-color: #c41230 !important;
+}
+
+button:focus-visible {
+    background-color: #c41230 !important;
+    border-color: #c41230 !important;
+}
+
+.btn-primary:active {
+    background-color: #c41230 !important;
+    border-color: #c41230 !important;
+}
+
+.btn-primary:focus-visible {
+    background-color: #c41230 !important;
+    border-color: #c41230 !important;
+}
+
 .section {
     padding: 5rem 0;
 }
@@ -166,3 +186,69 @@ footer {
         width: 100%;
     }
 }
+
+
+/* Newsletter Modal Styles */
+.newsletter-modal .modal-content {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+}
+
+.newsletter-modal .modal-header {
+    border-bottom: 1px solid #333333;
+}
+
+.newsletter-modal .modal-title {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.newsletter-modal .modal-body {
+    padding: 2rem;
+}
+
+.newsletter-modal .form-control {
+    background-color: #333333;
+    border: none;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+.newsletter-modal .form-control::placeholder {
+    color: #ffffff;
+}
+
+.newsletter-modal .form-control:focus {
+    box-shadow: none;
+    background-color: #444444;
+}
+
+.newsletter-modal .btn-custom {
+    background-color: #c69c6d;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-modal .btn-custom:hover {
+    background-color: #b38a5e;
+}
+
+.newsletter-modal .btn-close {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
+.newsletter-modal .btn-close:hover {
+    opacity: 1;
+}
+

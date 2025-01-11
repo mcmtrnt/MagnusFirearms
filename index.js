@@ -22,6 +22,10 @@ function sendEmail() {
             contentType: 'application/json'
         }).then(function(response) {
             clearModal();
+            $("#submitBanner").show();
+            setTimeout(function() {
+                $("#submitBanner").hide();
+            }, 3000);
         }, function(error) {
             clearModal();
         });
@@ -79,4 +83,13 @@ function onCaliberChange()
     }
     document.getElementById("thread pitch").innerHTML = str;
     document.getElementById("thread_pitch_msg").innerHTML = thread_pitch_msg;
+}
+
+function clearNewsletterModal()
+{
+    document.getElementById('newsletterEmail').value = "";
+
+    const modalElement = document.getElementById('newsletterModal');
+    const modal = bootstrap.Modal.getInstance(modalElement); 
+    modal.hide();
 }
