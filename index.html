@@ -270,6 +270,14 @@
                                 Please enter a valid email address
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Enter your phone number" id="newsletterPhone">
+                            <div class="invalid-feedback">
+                                Please enter your phone number
+                            </div>
+                        </div>
+
+                        
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                 </div>
@@ -310,6 +318,7 @@
                     user_id: '3R_XdgO-IPnpLws-T',
                     template_params: {
                         message: document.getElementById('newsletterEmail').value + " has subscribed to Magnus Firearms newsletter",
+                        phone: document.getElementById('newsletterPhone').value,
                         from_name: document.getElementById('newsletterEmail').value,
                         reply_to: document.getElementById('newsletterEmail').value
                     }
