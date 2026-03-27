@@ -91,6 +91,7 @@ function clearNewsletterModal()
 {
     document.getElementById('newsletterEmail').value = "";
     document.getElementById('newsletterPhone').value = "";
+    document.getElementById('newsletterDob').value = "";
     document.getElementById('newsletterError').classList.add('d-none');
 
     const modalElement = document.getElementById('newsletterModal');

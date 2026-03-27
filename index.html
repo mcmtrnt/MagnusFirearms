@@ -421,14 +421,10 @@
 
                         
                         <div class="mb-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="ageVerify" required>
-                                <label class="form-check-label" for="ageVerify">
-                                    I confirm that I am 18 years of age or older
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must confirm you are 18 or older to subscribe
-                                </div>
+                            <label for="newsletterDob" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" id="newsletterDob" required>
+                            <div class="invalid-feedback" id="dobFeedback">
+                                You must be 18 or older to subscribe
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -464,6 +460,20 @@
         document.getElementById('newsletterForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const form = document.getElementById('newsletterForm');
+            const dobInput = document.getElementById('newsletterDob');
+            const dob = new Date(dobInput.value);
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDiff = today.getMonth() - dob.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+            if (age < 18) {
+                dobInput.setCustomValidity('Must be 18 or older');
+                document.getElementById('dobFeedback').textContent = 'You must be 18 or older to subscribe';
+            } else {
+                dobInput.setCustomValidity('');
+            }
             if (form.checkValidity()) {
                 var data = {
                     service_id: 'service_dor6xx9',
