@@ -27,7 +27,7 @@ function sendEmail() {
                 $("#submitBanner").hide();
             }, 3000);
         }, function(error) {
-            clearModal();
+            document.getElementById('contactError').classList.remove('d-none');
         });
     }
     form.classList.add('was-validated')
@@ -41,9 +41,11 @@ function clearModal()
     document.getElementById('caliber').value = "";
     document.getElementById('thread pitch').value = "";
     document.getElementById('message').value = "";
+    document.getElementById('contactError').classList.add('d-none');
+    document.getElementById('contactForm').classList.remove('was-validated');
 
     const modalElement = document.getElementById('contactModal');
-    const modal = bootstrap.Modal.getInstance(modalElement); 
+    const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
 }
 
@@ -88,8 +90,10 @@ function onCaliberChange()
 function clearNewsletterModal()
 {
     document.getElementById('newsletterEmail').value = "";
+    document.getElementById('newsletterPhone').value = "";
+    document.getElementById('newsletterError').classList.add('d-none');
 
     const modalElement = document.getElementById('newsletterModal');
-    const modal = bootstrap.Modal.getInstance(modalElement); 
+    const modal = bootstrap.Modal.getInstance(modalElement);
     modal.hide();
 }

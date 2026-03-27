@@ -188,6 +188,56 @@ footer {
 }
 
 
+/* Testimonials */
+.testimonial-card {
+    background-color: var(--dark-gray);
+    color: #fff;
+    padding: 2rem;
+    height: 100%;
+}
+.testimonial-quote {
+    font-size: 3rem;
+    color: var(--primary-red);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+.testimonial-author {
+    color: var(--primary-red);
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+}
+.testimonial-location {
+    color: var(--light-gray);
+    font-size: 0.875rem;
+}
+
+/* FAQ Accordion */
+#faq .accordion-item {
+    background-color: var(--dark-gray);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0 !important;
+    margin-bottom: 0.5rem;
+}
+#faq .accordion-button {
+    background-color: var(--dark-gray);
+    color: #fff;
+    border-radius: 0 !important;
+    font-weight: 500;
+}
+#faq .accordion-button:not(.collapsed) {
+    background-color: #1a1d20;
+    color: var(--primary-red);
+    box-shadow: none;
+}
+#faq .accordion-button::after {
+    filter: invert(1);
+}
+#faq .accordion-body {
+    background-color: #1a1d20;
+    color: rgba(255,255,255,0.85);
+}
+
 /* Newsletter Modal Styles */
 .newsletter-modal .modal-content {
     background-color: #1a1a1a;
